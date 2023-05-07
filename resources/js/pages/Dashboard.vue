@@ -2,7 +2,7 @@
     <div id="backend-view">
         <div class="logout"><a href="#">Log out</a></div>
         <h1 class="heading">Dashboard</h1>
-        <span>Hi!</span>
+        <span>Hi {{name}}!</span>
         <div class="links">
             <ul>
                 <li><a href="">Create Post</a></li>
@@ -17,7 +17,15 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            name: {},
+        };
+    },
+    mounted() {
+        axios
+            .get("api/user")
+            .then((response) => this.name = response.data.name)
+            .catch((error) => console.log(error));
     },
 };
 </script>
