@@ -31,18 +31,24 @@
                             >Blog</router-link
                         >
                     </li>
-                    <li>
-                        <router-link @click="hideOverlay" :to="{ name: 'Login' }"
+                    <li v-if="!loggedIn">
+                        <router-link
+                            @click="hideOverlay"
+                            :to="{ name: 'Login' }"
                             >Login</router-link
                         >
                     </li>
-                    <li>
-                        <router-link @click="hideOverlay" :to="{ name: 'Register' }"
+                    <li v-if="!loggedIn">
+                        <router-link
+                            @click="hideOverlay"
+                            :to="{ name: 'Register' }"
                             >Register</router-link
                         >
                     </li>
-                    <li>
-                        <router-link @click="hideOverlay" :to="{ name: 'Dashboard' }"
+                    <li v-if="loggedIn">
+                        <router-link
+                            @click="hideOverlay"
+                            :to="{ name: 'Dashboard' }"
                             >Dashboard</router-link
                         >
                     </li>
@@ -68,7 +74,7 @@
         </div>
         <!-- main -->
         <main class="container">
-            <router-view></router-view>
+            <router-view @update-sidebar="updateSidebar"></router-view>
         </main>
 
         <!-- Main footer -->
@@ -88,6 +94,7 @@ export default {
     data() {
         return {
             overlayVisibility: false,
+            loggedIn: false,
         };
     },
     methods: {
@@ -97,6 +104,16 @@ export default {
         hideOverlay() {
             this.overlayVisibility = false;
         },
+        updateSidebar() {
+            this.loggedIn = !this.loggedIn;
+        },
+    },
+    mounted() {
+        if (localStorage.getItem("authenticated")) {
+            this.loggedIn = true;
+        } else {
+            this.loggedIn = false;
+        }
     },
 };
 </script>
