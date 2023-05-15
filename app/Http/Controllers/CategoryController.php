@@ -17,4 +17,9 @@ class CategoryController extends Controller
         $category->name = $name;
         return $category->save();
     }
+
+    public function index()
+    {
+        return Category::latest()->get();
+    }
 }

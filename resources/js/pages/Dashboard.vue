@@ -13,7 +13,7 @@
                         >Create Category</router-link
                     >
                 </li>
-                <li><a href="">Category List</a></li>
+                <li><router-link :to="{name: 'CategoriesList'}">Category List</router-link></li>
             </ul>
         </div>
     </div>

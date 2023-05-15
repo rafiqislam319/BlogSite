@@ -28,3 +28,4 @@ Route::middleware('auth:sanctum')->post('logout', [AuthenticatedSessionControlle
 
 //crud for category
 Route::middleware('auth:sanctum')->post('category/create', [CategoryController::class, 'store']);
+Route::middleware('auth:sanctum')->get('categories', [CategoryController::class, 'index']);

@@ -18,7 +18,10 @@
                     <input type="submit" value="Submit" />
                 </form>
             </div>
-            <div class="create-categories"></div>
+            <div class="create-categories">
+                <!-- <a href="">Category List <span>&#8594;</span></a> -->
+                <router-link :to="{name: 'CategoriesList'}">Category List</router-link>
+            </div>
         </div>
     </div>
 </template>
