@@ -41,7 +41,7 @@ export default {
     methods: {
         submit() {
             axios
-                .post("/api/category/create", this.field)
+                .put("/api/category/" + this.id, this.field)
                 .then(() => {
                     this.field = {};
                     this.errors = {};
@@ -56,11 +56,11 @@ export default {
         },
     },
     mounted() {
-    axios
-      .get("/api/categories/" + this.id)
-      .then((response) => (this.field = response.data))
-      .catch((error) => console.log(error));
-  },
+        axios
+            .get("/api/categories/" + this.id)
+            .then((response) => (this.field = response.data))
+            .catch((error) => console.log(error));
+    },
 };
 </script>
 
