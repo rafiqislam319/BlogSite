@@ -37,4 +37,9 @@ class CategoryController extends Controller
         $category->name = $name;
         return $category->save();
     }
+
+    public function destroy(Category $category)
+    {
+        return $category->delete();
+    }
 }

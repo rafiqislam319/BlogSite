@@ -31,3 +31,4 @@ Route::middleware('auth:sanctum')->post('category/create', [CategoryController::
 Route::middleware('auth:sanctum')->get('categories', [CategoryController::class, 'index']);
 Route::middleware('auth:sanctum')->get('categories/{category}', [CategoryController::class, 'show']);
 Route::middleware('auth:sanctum')->put('category/{category}', [CategoryController::class, 'update']);
+Route::middleware('auth:sanctum')->delete('category/{category}', [CategoryController::class, 'destroy']);
