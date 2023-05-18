@@ -22,4 +22,9 @@ class CategoryController extends Controller
     {
         return Category::latest()->get();
     }
+
+    public function show(Category $category)
+    {
+        return $category;
+    }
 }

@@ -11,7 +11,8 @@
       <p>{{ category.name }}</p>
 
       <div class="action-buttons">
-        <button class="edit-btn" @click="edit(category.id)">Edit</button>
+        <!-- <button class="edit-btn" @click="edit(category.id)">Edit</button> -->
+        <router-link :to="{name: 'EditCategories', params:{id: category.id}}" class="edit-btn">Edit</router-link>
         <button class="delete-btn" @click="destroy(category.id)">Delete</button>
       </div>
     </div>
