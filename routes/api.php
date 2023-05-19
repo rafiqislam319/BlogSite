@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,3 +38,6 @@ Route::middleware('auth:sanctum')->delete('category/{category}', [CategoryContro
 
 //posts
 Route::middleware('auth:sanctum')->post('posts/create', [PostController::class, 'store']);
+
+//homepage post
+Route::get('all/posts', [HomeController::class, 'index']);
