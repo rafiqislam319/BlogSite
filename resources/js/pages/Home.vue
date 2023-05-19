@@ -16,8 +16,15 @@
                     <span style="float: right">Written By Rafiqul Islam</span>
                 </p>
                 <h4 style="font-weight: bolder">
-                    
-                    <router-link :to="{name: 'SingleBlog', params:{slug: 'Benefits-of-Getting-Covid-19-Vaccination'}}">Benefits of Getting Covid 19 Vaccination</router-link>
+                    <router-link
+                        :to="{
+                            name: 'SingleBlog',
+                            params: {
+                                slug: 'Benefits-of-Getting-Covid-19-Vaccination',
+                            },
+                        }"
+                        >Benefits of Getting Covid 19 Vaccination</router-link
+                    >
                 </h4>
             </div>
 
@@ -62,3 +69,9 @@
         </section>
     </main>
 </template>
+
+<script>
+export default {
+    emits: ["updateSidebar"],
+};
+</script>
