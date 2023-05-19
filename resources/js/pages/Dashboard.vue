@@ -5,7 +5,12 @@
         <span>Hi {{ name }}!</span>
         <div class="links">
             <ul>
-                <li><a href="">Create Post</a></li>
+                <!-- <li><a href="">Create Post</a></li> -->
+                <li>
+                    <router-link :to="{ name: 'CreatePosts' }"
+                        >Create Post</router-link
+                    >
+                </li>
                 <li><a href="">Post List</a></li>
                 <!-- <li><a href=""><router-link :to="{name: 'CreateCategories'}">Create Category</router-link></a></li> -->
                 <li>
@@ -13,7 +18,11 @@
                         >Create Category</router-link
                     >
                 </li>
-                <li><router-link :to="{name: 'CategoriesList'}">Category List</router-link></li>
+                <li>
+                    <router-link :to="{ name: 'CategoriesList' }"
+                        >Category List</router-link
+                    >
+                </li>
             </ul>
         </div>
     </div>

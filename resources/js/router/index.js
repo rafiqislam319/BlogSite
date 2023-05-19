@@ -10,6 +10,7 @@ import Dashboard from "../pages/Dashboard.vue";
 import CreateCategories from "../pages/categories/CreateCategories.vue";
 import CategoriesList from "../pages/categories/CategoriesList.vue";
 import EditCategories from "../pages/categories/EditCategories.vue";
+import CreatePosts from "../pages/posts/CreatePosts.vue";
 
 const routes = [
     {
@@ -74,6 +75,12 @@ const routes = [
         component: EditCategories,
         meta: { requiresAuth: true },
         props: true,
+    },
+    {
+        path: "/post/create",
+        name: "CreatePosts",
+        component: CreatePosts,
+        meta: { requiresAuth: true },
     },
 ];
 
