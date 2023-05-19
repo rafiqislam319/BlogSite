@@ -42,3 +42,4 @@ Route::middleware('auth:sanctum')->post('posts/create', [PostController::class, 
 //homepage post
 Route::get('all/posts', [HomeController::class, 'index']);
 Route::get('single/post/{post:slug}', [PostController::class, 'show']);
+Route::get('posts/all', [PostController::class, 'index']);

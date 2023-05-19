@@ -45,6 +45,7 @@
 
 <script>
 export default {
+    emits: ["updateSidebar"],
     props: ["slug"],
     data() {
         return {
@@ -59,5 +60,4 @@ export default {
     },
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>
