@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RelatedPostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -39,7 +40,10 @@ Route::middleware('auth:sanctum')->delete('category/{category}', [CategoryContro
 //posts
 Route::middleware('auth:sanctum')->post('posts/create', [PostController::class, 'store']);
 
-//homepage post
+//homepage part
 Route::get('all/posts', [HomeController::class, 'index']);
+
 Route::get('single/post/{post:slug}', [PostController::class, 'show']);
 Route::get('posts/all', [PostController::class, 'index']);
+
+Route::get('related-post/{post:slug}', [RelatedPostController::class, 'show']);
