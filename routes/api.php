@@ -40,6 +40,7 @@ Route::middleware('auth:sanctum')->delete('category/{category}', [CategoryContro
 
 //posts
 Route::middleware('auth:sanctum')->post('posts/create', [PostController::class, 'store']);
+Route::middleware('auth:sanctum')->put('posts/{post:slug}', [PostController::class, 'update']);
 
 //homepage part
 Route::get('all/posts', [HomeController::class, 'index']);

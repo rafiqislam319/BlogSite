@@ -6,11 +6,20 @@
             <i class="fa fa-check"></i>
             Post deleted successfully
         </div>
+        <div class="success-msg" v-if="editSuccess">
+            <i class="fa fa-check"></i>
+            Post edited successfully
+        </div>
         <div class="item" v-for="(post, index) in posts" :key="post.id">
             <span>{{ index + 1 }}</span>
             <p>{{ post.title }}</p>
             <div>
-                <a href="" class="edit-link">Edit</a>
+                <!-- <a href="" class="edit-link">Edit</a> -->
+                <router-link
+                    :to="{ name: 'EditPost', params: { slug: post.slug } }"
+                    class="edit-link"
+                    >Edit</router-link
+                >
             </div>
 
             <input type="submit" value="Delete" class="delete-btn" />
@@ -25,6 +34,7 @@
 
 <script>
 export default {
+    props: ["editSuccess"],
     emits: ["updateSidebar"],
     data() {
         return {

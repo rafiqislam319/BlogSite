@@ -74,7 +74,12 @@
         </div>
         <!-- main -->
         <main class="container">
-            <router-view @update-sidebar="updateSidebar" :key="$route.path"></router-view>
+            <router-view
+                @update-sidebar="updateSidebar"
+                @show-edit-success="showEditSuccess"
+                :editSuccess="editSuccess"
+                :key="$route.path"
+            ></router-view>
         </main>
 
         <!-- Main footer -->
@@ -95,6 +100,7 @@ export default {
         return {
             overlayVisibility: false,
             loggedIn: false,
+            editSuccess: false,
         };
     },
     methods: {
@@ -106,6 +112,9 @@ export default {
         },
         updateSidebar() {
             this.loggedIn = !this.loggedIn;
+        },
+        showEditSuccess() {
+            this.editSuccess = true;
         },
     },
     mounted() {
