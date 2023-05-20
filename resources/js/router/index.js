@@ -84,7 +84,7 @@ const routes = [
         meta: { requiresAuth: true },
     },
     {
-        path: "/posts",
+        path: "/dashboard-posts",
         name: "DashboardPostList",
         component: DashboardPostList,
         meta: { requiresAuth: true },

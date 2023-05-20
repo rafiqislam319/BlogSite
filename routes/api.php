@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RelatedPostController;
@@ -45,5 +46,6 @@ Route::get('all/posts', [HomeController::class, 'index']);
 
 Route::get('single/post/{post:slug}', [PostController::class, 'show']);
 Route::get('posts/all', [PostController::class, 'index']);
+Route::get('/dashboard-posts', [DashboardBlogController::class, 'index']);
 
 Route::get('related-post/{post:slug}', [RelatedPostController::class, 'show']);
