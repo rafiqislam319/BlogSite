@@ -11,8 +11,9 @@
                         >Create Post</router-link
                     >
                 </li>
-                <li><a href="">Post List</a></li>
-                <!-- <li><a href=""><router-link :to="{name: 'CreateCategories'}">Create Category</router-link></a></li> -->
+                <li>
+                <router-link :to="{name: 'DashboardPostList'}">Post List</router-link>
+                </li>
                 <li>
                     <router-link :to="{ name: 'CreateCategories' }"
                         >Create Category</router-link
