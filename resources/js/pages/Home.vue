@@ -1,5 +1,6 @@
 <template>
-    <header class="header">
+    <div>
+        <header class="header">
         <div class="header-text">
             <h1>Rafiqul's Blog</h1>
             <h4>Home of verified news...</h4>
@@ -29,6 +30,7 @@
             </div>
         </section>
     </main>
+    </div>
 </template>
 
 <script>
