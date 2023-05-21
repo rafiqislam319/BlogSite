@@ -109,6 +109,9 @@ export default {
                 })
                 .catch((error) => {
                     this.errors = error.response.data.errors;
+                    if(error.response.status === 403){
+                    this.$router.push({ name: "DashboardPostList" });
+                }
                 });
         },
     },
@@ -124,7 +127,11 @@ export default {
                 this.fields = response.data.data;
                 this.url = "/" + response.data.data.imagePath;
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                if(error.response.status === 403){
+                    this.$router.push({ name: "DashboardPostList" });
+                }
+            });
     },
 };
 </script>
