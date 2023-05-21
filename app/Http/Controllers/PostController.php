@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\PostResource;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\File;
@@ -11,8 +12,11 @@ use Illuminate\Support\Str;
 class PostController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->category) {
+            return PostResource::collection(Category::where('name', $request->category)->firstOrFail()->posts()->latest()->get());
+        }
         return PostResource::collection(Post::latest()->get());
     }
 
@@ -52,7 +56,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        if(auth()->user()->id !== $post->user->id){
+        if (auth()->user()->id !== $post->user->id) {
             return abort(403);
         }
         return new PostResource($post);
@@ -90,7 +94,8 @@ class PostController extends Controller
         $post->body = $body;
         return $post->save();
     }
-    public function destroy(Post $post){
+    public function destroy(Post $post)
+    {
         if (auth()->user()->id !== $post->user->id) {
             return abort(403);
         }
