@@ -2,7 +2,12 @@
     <h2 class="header-title">All Blog Posts</h2>
     <div class="searchbar">
         <form action="">
-            <input type="text" placeholder="Search..." name="search" />
+            <input
+                type="text"
+                placeholder="Search..."
+                name="search"
+                v-model="title"
+            />
 
             <button type="submit">
                 <i class="fa fa-search"></i>
@@ -37,6 +42,7 @@
                 >
             </h4>
         </div>
+        <h3 class="match" v-if="!posts.length">Sorry! No matching result found</h3>
     </section>
     <!-- pagination -->
     <div class="pagination" id="pagination">
@@ -57,6 +63,7 @@ export default {
         return {
             posts: [],
             categories: [],
+            title: "",
         };
     },
 
@@ -76,6 +83,23 @@ export default {
                 });
         },
     },
+
+      watch: {
+    title() {
+      axios
+        .get("/api/posts/all", {
+          params: {
+            search: this.title,
+          },
+        })
+        .then((response) => {
+          this.posts = response.data.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
 
     mounted() {
         axios
@@ -98,5 +122,12 @@ export default {
 .card-blog-content img {
     width: 500px;
     height: 300px;
+}
+
+h3 {
+  font-size: 30px;
+  text-align: center;
+  margin: 50px 0;
+  color: #fff;
 }
 </style>
