@@ -90,4 +90,10 @@ class PostController extends Controller
         $post->body = $body;
         return $post->save();
     }
+    public function destroy(Post $post){
+        if (auth()->user()->id !== $post->user->id) {
+            return abort(403);
+        }
+        return $post->delete();
+    }
 }
